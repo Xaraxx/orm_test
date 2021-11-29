@@ -4,6 +4,7 @@
   "description": "This is a little test app for test apps with raw mysql",
   "main": "index.js",
   "scripts": {
+    "local": "NODE_ENV=local nodemon src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/Xaraxx/orm_test#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "nodemon": "^2.0.15"
   }
 }
