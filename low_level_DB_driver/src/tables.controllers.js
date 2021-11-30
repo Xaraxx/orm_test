@@ -39,4 +39,4 @@ tableControllers.getARowFromTableById = async (req, res) => {
     }
 }
 
-exports.module = tableControllers
+module.exports = tableControllers

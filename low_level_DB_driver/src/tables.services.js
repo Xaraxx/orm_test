@@ -1,11 +1,11 @@
-const pool = require('../index')
+const pool = require("../connection")
 
 const tablesServices = {}
 
 tablesServices.getAllItemTable = async () => { 
     try {
-        const query = await pool.query('SELECT * FROM item')
-        return query
+        const items = await pool.query('SELECT * FROM item')
+        return items
     } catch (error) {
         console.log(error)
     } 
@@ -13,8 +13,8 @@ tablesServices.getAllItemTable = async () => {
 
 tablesServices.getAllIngredientsTable = async () => {
     try {
-        const query = await pool.query('SELECT * FROM ingredient')
-        return query
+        const ingredients = await pool.query('SELECT * FROM ingredient')
+        return ingredients
     } catch (error) {
         console.log(error)
     }
@@ -22,8 +22,8 @@ tablesServices.getAllIngredientsTable = async () => {
 
 tablesServices.getAllDishTable = async () => {
     try {
-        const query = await pool.query('SELECT * FROM dish')
-        return query
+        const dishes = await pool.query('SELECT * FROM dish')
+        return dishes
     } catch (error) {
         console.log(error)
     }
@@ -31,8 +31,8 @@ tablesServices.getAllDishTable = async () => {
 
 tablesServices.getARowFromTableById = async (id, table) => {
     try {
-        const query = await pool.query('SELECT * FROM table=? WHERE id=?', [table, id])
-        return query
+        const row = await pool.query('SELECT * FROM table=? WHERE id=?', [table, id])
+        return row
     } catch (error) {
         console.log(error)
     }
