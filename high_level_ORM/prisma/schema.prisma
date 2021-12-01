@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model dish {
+  id   Int  @id @unique(map: "id") @default(autoincrement())
+  name String  @db.VarChar(64)
+  veg  Boolean
+
+  @@index([veg], map: "dish_veg_IDX")
+}
+
+model ingredient {
+  dish_id  Int @id @unique(map: "dish_id") @default(autoincrement())
+  item_id  Int
+  quantity Float? @default(1) @db.Float
+  unit     String @db.VarChar(32)
+
+}
+
+model item {
+  id   Int     @id @unique(map: "id") @default(autoincrement())
+  name String     @db.VarChar(64)
+  type item_type?
+
+  @@index([type], map: "item_type_IDX")
+}
+
+enum item_type {
+  meat
+  veg
+  spice
+  dairy
+  oil
+}

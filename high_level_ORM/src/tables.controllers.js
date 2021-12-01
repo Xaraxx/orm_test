@@ -6,8 +6,8 @@ tableControllers.getAllItemTable = async (req, res) => {
         let items = await tablesServices.getAllItemTable()
         res.status(200).json(items)
     } catch (error) {
-        res.send(error)
-    }
+        res.json(error)
+    } 
 }
 
 tableControllers.getAllIngredientsTable = async (req, res) => {
@@ -28,15 +28,15 @@ tableControllers.getAllDishTable = async (req, res) => {
     }
 }
 
-tableControllers.getARowFromTableById = async (req, res) => {
-    try {
-        let id = req.params.id
-        let tableName = req.params.table
-        let row = await tablesServices.getARowFromTableById(id, tableName)
-        res.status(200).json(row)
-    } catch (error) {
-        res.send(error)
-    }
-}
+// tableControllers.getARowFromTableById = async (req, res) => {
+//     try {
+//         let id = req.params.id
+//         let tableName = req.params.table
+//         let row = await tablesServices.getARowFromTableById(id, tableName)
+//         res.status(200).json(row)
+//     } catch (error) {
+//         res.send(error)
+//     }
+// }
 
 module.exports = tableControllers
